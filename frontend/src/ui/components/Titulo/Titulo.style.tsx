@@ -10,5 +10,6 @@ export const SubtituloStyled = styled('h2')`
 	font-size: 1.125em;
 	text-align:center;
 	font-weight: normal;
-	margin-bottom: ${({theme}) =>theme.spacing(5)}
+	margin-bottom: ${({theme}) =>theme.spacing(5)};
+	color: ${({theme}) => theme.palette.text.secondary};
 `;
