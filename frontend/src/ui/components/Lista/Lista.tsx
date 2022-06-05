@@ -13,19 +13,20 @@ import { Pet } from "../../../data/@types/Pet";
 
 interface ListaProps {
   pets: Array<Pet>;
+	onSelect: (pet:Pet) => void;
 }
 
 export default function Lista(props: ListaProps) {
-	const maxTextSize = 24
+	const maxTextSize = 240
   return (
     <ListaStyled>
       {props.pets.map((pet) => (
         <ItemLista key={pet.id}>
-          <Foto src={pet.photoUrl} alt={pet.name} />
+          <Foto src={pet.photo_url} alt={pet.name} />
           <Informacoes>
             <Nome> {pet.name} </Nome>
             <Descricao>{TextServices.limitarTexto(pet.history,maxTextSize)}</Descricao>
-            <Button variant={"contained"} fullWidth> {" "} {`Adote ${pet.name}`}{" "} </Button>
+            <Button variant={"contained"} fullWidth onClick={() => props.onSelect(pet)}> {" "} {`Adote ${pet.name}`}{" "} </Button>
           </Informacoes>
         </ItemLista>
       ))}

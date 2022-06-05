@@ -22,7 +22,7 @@ const ItemLista = styled("li")`
 const Foto = styled("img")`
   width: 100%;
 	height: 100%;
-	max-height: 200px;
+	max-height: 250px;
 `;
 
 const Informacoes = styled("div")`
