@@ -3,6 +3,10 @@ import { Pet } from "../../@types/Pet";
 import { ApiService } from "../../services/ApiService";
 import { AxiosError } from "axios";
 
+interface SerializablePet extends Pet {
+	photo_url: string
+}
+
 export function useIndex() {
   function validateAdoptionData() {
     return email.length > 0 && donation.length > 0;
@@ -42,7 +46,11 @@ export function useIndex() {
 
   useEffect(() => {
     ApiService.get("/pets").then((response) => {
-      setPets(response.data);
+      const responseData = response.data;
+			const serializedData = responseData.map(({id,name,history,photo_url}:SerializablePet)=>{
+				return {id,name,history,photoUrl:photo_url}
+			})
+			setPets(serializedData)
     });
   }, []);
   return {
