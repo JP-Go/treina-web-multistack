@@ -13,8 +13,9 @@ from .serializers import PetSerializer
 um método da classe
 """
 
+
 class PetList(APIView):
-    def get(self, request,format=None):
+    def get(self, request, format=None):
         pets = Pet.objects.all()
-        serializer = PetSerializer(pets,many=True)
-        return Response(serializer.data,status=HTTP_200_OK)
+        serializer = PetSerializer(pets, many=True)
+        return Response(serializer.data, status=HTTP_200_OK)
