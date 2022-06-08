@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import AdocaoList
+from .views import AdoptionList
 
 urlpatterns = [
-    path("", AdocaoList.as_view()),
+    path("", AdoptionList.as_view()),
 ]
