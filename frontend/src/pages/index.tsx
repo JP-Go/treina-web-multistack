@@ -10,7 +10,6 @@ import type { NextPage } from "next";
 import Lista from "../ui/components/Lista/Lista";
 import Titulo from "../ui/components/Titulo/Titulo";
 import { useIndex } from "../data/hooks/pages/useIndex";
-
 const Home: NextPage = () => {
   const {
     pets,
@@ -20,9 +19,9 @@ const Home: NextPage = () => {
     setEmail,
     donation,
     setDonation,
-		message,
-		setMessage,
-		adopt
+    message,
+    setMessage,
+    adopt,
   } = useIndex();
 
   return (
@@ -55,7 +54,9 @@ const Home: NextPage = () => {
               type={"email"}
               label={"E-mail"}
               value={email}
-							onChange={(e) =>{setEmail(e.target.value)}}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             ></TextField>
           </Grid>
           <Grid item xs={12}>
@@ -74,10 +75,17 @@ const Home: NextPage = () => {
           <Button color={"secondary"} onClick={() => setSelectedPet(null)}>
             Cancelar
           </Button>
-          <Button variant={"contained"} onClick={()=> adopt()}>Confirmar Adoção</Button>
+          <Button variant={"contained"} onClick={() => adopt()}>
+            Confirmar Adoção
+          </Button>
         </DialogActions>
       </Dialog>
-      <Snackbar open={message.length > 0} message={message} autoHideDuration={2500} onClose={()=> setMessage('')} />
+      <Snackbar
+        open={message.length > 0}
+        message={message}
+        autoHideDuration={2500}
+        onClose={() => setMessage("")}
+      />
     </div>
   );
 };
