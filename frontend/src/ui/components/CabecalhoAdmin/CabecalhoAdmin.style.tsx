@@ -1,0 +1,29 @@
+import { styled } from "@mui/material";
+
+export const CabecalhoContainer = styled('header')`
+  height: 115px;
+  background-color: #f6f6f6;
+  padding: ${({ theme }) => theme.spacing(2)};
+  
+  div{
+    height: 100%;
+    max-width: 960px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between; 
+    gap: ${({theme}) => theme.spacing(2)};
+ }
+ a{
+	font-size: 14px;
+ }
+`;
+
+export const Logo = styled('img')``;
+
+export const LinksContainer = styled('nav')`
+	display:flex;
+	margin: auto 0;
+	gap: ${({theme}) => theme.spacing(2)};
+	flex-wrap:wrap;
+	justify-content: flex-end;
+`;
