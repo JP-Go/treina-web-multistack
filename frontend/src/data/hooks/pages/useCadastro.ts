@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import { useState } from "react";
 import { ApiService } from "../../services/ApiService";
 
@@ -11,17 +12,28 @@ export function useCadastro() {
   function isAnyFieldEmpty() {
     return [name, history, photoUrl]
       .map((field) => field.length > 0)
-      .some((fieldStatus) => fieldStatus === false)
+      .some((fieldStatus) => fieldStatus === false);
   }
 
-  function postRegisterForm() {}
+  function postRegisterForm() {
+    ApiService.post("pets/", {
+      name,
+      history,
+      photo_url: photoUrl,
+    }).catch((err: AxiosError) => {
+      setMessage(err.response?.data.message);
+      return false;
+    });
+    return true;
+  }
 
   function registerPet() {
     if (isAnyFieldEmpty()) {
       setMessage("Preencha todos os campos");
       return;
     }
-    setMessage(`Pet ${name}, com foto ${photoUrl} e história ${history} foi  registrado`);
+		if (!postRegisterForm()) return;
+    setMessage(`Pet ${name} adotado`);
     clearForm();
   }
 
