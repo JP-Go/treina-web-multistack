@@ -17,7 +17,6 @@ resgatadoras de animais.
   - Django
 	- Django rest_framework
 - Ferramentas agnósticas
-  - Nvim
 	- GitLab
 
 ## Instalação
@@ -34,5 +33,5 @@ resgatadoras de animais.
 ## Melhorias a se fazer
 
 - Utilizar um script para inicializar ambos os servidores
-
+- Criação de uma nova rota para administração de adoções
 
